@@ -1,2 +1,10 @@
 <h1>Home#index</h1>
 <h3>Hello <%= @email %></h3>
+
+<% if user_signed_in? %>
+    <% if current_user.restaurant? %>
+        <%= render 'restaurant', varprops: 1234 %>
+    <% elsif current_user.customer? %>
+        <%= render 'customer' %>
+    <% end %>
+<% end %>
